@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import javax.persistence.Access;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -20,5 +21,10 @@ public class StudentService {
             return "Student saved";
         }
         return "Student already exists";
+    }
+
+    public List<Student> getAllStudents() {
+        List<Student> studentsList = studentRepository.findAll();
+        return studentsList;
     }
 }
